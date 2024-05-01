@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Bellefair";
+    src: url("../../Fonts/Bellefair-Regular.ttf") format('truetype');
+}
+h1 {
+    font-family: "Bellefair";
+}
+.black-scale {
+    background-color: black;
+    width: 127px;
+    height: 127px;
+}
