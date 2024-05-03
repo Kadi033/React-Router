@@ -6,12 +6,18 @@ import {
   technology,
 } from "../../assets";
 
+const technologyImages = {
+  launchRocket: launchRocket,
+  spacePort: spacePort,
+  spaceCapsule: spaceCapsule
+};
+
 const Technology = () => {
   const [background, setBackground] = useState(launchRocket);
   const [selectedTechnology, setSelectedTechnology] = useState("launchRocket");
 
   const handleChange = (image, technology) => {
-    setBackground(eval(image));
+    setBackground(technologyImages[image]);
     setSelectedTechnology(technology);
   };
 
@@ -59,7 +65,7 @@ const Technology = () => {
             (technology, index) => (
               <div
                 key={technology}
-                className=" opacity-50 hover:opacity-100 duration-75 pl-2 mr-3 cursor-pointer inline-block text-white ml-8 mt-7 font-barlow-condensed text-base font-normal leading-normal tracking-wide"
+                className="opacity-50 hover:opacity-100 duration-75 pl-2 mr-3 cursor-pointer inline-block text-white ml-8 mt-7 font-barlow-condensed text-base font-normal leading-normal tracking-wide"
                 onClick={() => handleChange(technology, technology)}
               >
                 ○

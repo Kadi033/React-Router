@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import { MOON, TITAN, MARS, EUROPA, destinatioon } from "../../assets";
 import "./Destination.css";
+
+const planetImages = {
+  MOON: MOON,
+  TITAN: TITAN,
+  MARS: MARS,
+  EUROPA: EUROPA
+};
+
 function Destination() {
   const [background, setBackground] = useState(MOON);
   const [selectedPlanet, setSelectedPlanet] = useState("MOON");
 
-  const handleChange = (image, planet) => {
-    setBackground(eval(image));
+  const handleChange = (planet, image) => {
+    setBackground(planetImages[image]);
     setSelectedPlanet(planet);
   };
 
@@ -21,18 +29,13 @@ function Destination() {
           style={{ backgroundImage: `url(${background})` }}
         />
         <div>
-          {["MOON", "MARS", "EUROPA", "TITAN"].map((image, index) => (
+          {["MOON", "MARS", "EUROPA", "TITAN"].map((planet, index) => (
             <div
-              key={image}
+              key={planet}
               className="destini-hover p-3 cursor-pointer inline-block text-white ml-9 font-barlow-condensed text-base font-normal leading-normal tracking-wide"
-              onClick={() =>
-                handleChange(
-                  image,
-                  image.charAt(0).toUpperCase() + image.slice(1)
-                )
-              }
+              onClick={() => handleChange(planet, planet)}
             >
-              {image}
+              {planet}
             </div>
           ))}
           <div>
